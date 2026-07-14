@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RetroMark — Bookmark Store</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<header class="header">
+    <div class="logo">
+        <span class="logo-box">R</span>
+
+        <div>
+            <h1>RETRO<span>MARK</span></h1>
+            <p>YOUR PERSONAL LINK ARCHIVE</p>
+        </div>
+    </div>
+
+    <button class="add-btn" id="openModal">
+        <span>＋</span>
+        ADD LINK
+    </button>
+</header>
+
+<main>
+
+    <section class="hero">
+        <p class="hero-label">// BOOKMARK ARCHIVE</p>
+
+        <h2>
+            SAVE THE WEB.<br>
+            <span>KEEP IT CLOSE.</span>
+        </h2>
+
+        <p class="hero-description">
+            A simple space for links worth remembering.
+        </p>
+    </section>
+
+
+    <section class="controls">
+
+        <div class="search-box">
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="SEARCH YOUR ARCHIVE..."
+            >
+        </div>
+
+        <div class="filters">
+            <button class="filter active" data-filter="all">ALL</button>
+            <button class="filter" data-filter="youtube">YOUTUBE</button>
+            <button class="filter" data-filter="web">WEB</button>
+        </div>
+
+    </section>
+
+
+    <section class="bookmark-grid" id="bookmarkGrid"></section>
+
+
+    <section class="empty-state" id="emptyState">
+
+        <div class="empty-icon">↗</div>
+
+        <h3>NOTHING SAVED YET.</h3>
+
+        <p>
+            THE INTERNET IS A BIG PLACE.<br>
+            SAVE SOMETHING WORTH RETURNING TO.
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal-overlay" id="modalOverlay">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span>// NEW ENTRY</span>
+                <h2>ADD BOOKMARK</h2>
+            </div>
+
+            <button class="close-btn" id="closeModal">×</button>
+
+        </div>
+
+
+        <form id="bookmarkForm">
+
+            <div class="input-group">
+                <label>LINK TITLE</label>
+
+                <input
+                    type="text"
+                    id="titleInput"
+                    placeholder="MY AWESOME LINK"
+                    required
+                >
+            </div>
+
+
+            <div class="input-group">
+                <label>URL</label>
+
+                <input
+                    type="url"
+                    id="urlInput"
+                    placeholder="https://..."
+                    required
+                >
+            </div>
+
+
+            <button type="submit" class="save-btn">
+                SAVE TO ARCHIVE
+                <span>→</span>
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast">
+    BOOKMARK SAVED
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
