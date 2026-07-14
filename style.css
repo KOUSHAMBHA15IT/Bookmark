@@ -1,11 +1,11 @@
 :root {
-    --black: #171611;
-    --dark: #211f18;
-    --orange: #d85b26;
-    --orange-dark: #a83f17;
-    --yellow: #f3e3a3;
-    --cream: #fff4ca;
-    --border: #4a4432;
+    --black: #0b0f0a;
+    --dark: #141a12;
+    --green: #72c13e;
+    --green-dark: #3f7f28;
+    --yellow: #f3dc5b;
+    --cream: #fff3a6;
+    --border: #3f4d2f;
 }
 
 * {
@@ -57,7 +57,7 @@ button {
 .logo-box {
     width: 45px;
     height: 45px;
-    background: var(--orange);
+    background: var(--green);
     color: var(--black);
     display: grid;
     place-items: center;
@@ -72,7 +72,7 @@ button {
 }
 
 .logo h1 span {
-    color: var(--orange);
+    color: var(--green);
 }
 
 .logo p {
@@ -84,8 +84,8 @@ button {
 }
 
 .add-btn {
-    border: 1px solid var(--orange);
-    background: var(--orange);
+    border: 1px solid var(--green);
+    background: var(--green);
     color: var(--black);
     padding: 13px 20px;
     font-family: "DM Mono", monospace;
@@ -97,7 +97,7 @@ button {
     background: var(--yellow);
     border-color: var(--yellow);
     transform: translateY(-3px);
-    box-shadow: 5px 5px 0 var(--orange-dark);
+    box-shadow: 5px 5px 0 var(--green-dark);
 }
 
 main {
@@ -111,7 +111,7 @@ main {
 }
 
 .hero-label {
-    color: var(--orange);
+    color: var(--green);
     font-family: "DM Mono", monospace;
     font-size: 12px;
     margin-bottom: 18px;
@@ -124,7 +124,7 @@ main {
 }
 
 .hero h2 span {
-    color: var(--orange);
+    color: var(--green);
 }
 
 .hero-description {
@@ -153,7 +153,7 @@ main {
 }
 
 .search-box span {
-    color: var(--orange);
+    color: var(--green);
     font-size: 25px;
 }
 
@@ -169,7 +169,7 @@ main {
 }
 
 .search-box input::placeholder {
-    color: #706952;
+    color: #77804f;
 }
 
 .filters {
@@ -180,7 +180,7 @@ main {
 .filter {
     background: transparent;
     border: 1px solid var(--border);
-    color: #8c8264;
+    color: #8c965f;
     padding: 0 18px;
     font-family: "DM Mono", monospace;
     font-size: 11px;
@@ -212,8 +212,8 @@ main {
 
 .card:hover {
     transform: translateY(-7px);
-    border-color: var(--orange);
-    box-shadow: 8px 8px 0 rgba(216, 91, 38, 0.25);
+    border-color: var(--green);
+    box-shadow: 8px 8px 0 rgba(114, 193, 62, 0.25);
 }
 
 .thumbnail {
@@ -235,14 +235,24 @@ main {
     display: grid;
     place-items: center;
     background:
-        linear-gradient(45deg, transparent 49%, #332f22 50%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, #332f22 50%, transparent 51%);
+        linear-gradient(
+            45deg,
+            transparent 49%,
+            #28311e 50%,
+            transparent 51%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 49%,
+            #28311e 50%,
+            transparent 51%
+        );
     background-size: 30px 30px;
 }
 
 .web-placeholder span {
     font-size: 55px;
-    color: var(--orange);
+    color: var(--green);
 }
 
 .card-content {
@@ -251,7 +261,7 @@ main {
 
 .card-type {
     font-family: "DM Mono", monospace;
-    color: var(--orange);
+    color: var(--green);
     font-size: 10px;
     letter-spacing: 2px;
 }
@@ -268,7 +278,7 @@ main {
 .card-url {
     font-family: "DM Mono", monospace;
     font-size: 10px;
-    color: #82785b;
+    color: #89915c;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -282,7 +292,7 @@ main {
 
 .visit-btn {
     flex: 1;
-    background: var(--orange);
+    background: var(--green);
     color: var(--black);
     border: none;
     padding: 12px;
@@ -301,15 +311,15 @@ main {
 .delete-btn {
     width: 42px;
     background: transparent;
-    color: var(--orange);
+    color: var(--green);
     border: 1px solid var(--border);
     transition: 0.25s;
 }
 
 .delete-btn:hover {
     color: var(--black);
-    background: var(--orange);
-    border-color: var(--orange);
+    background: var(--green);
+    border-color: var(--green);
 }
 
 .empty-state {
@@ -320,8 +330,8 @@ main {
 .empty-icon {
     width: 75px;
     height: 75px;
-    border: 1px solid var(--orange);
-    color: var(--orange);
+    border: 1px solid var(--green);
+    color: var(--green);
     display: grid;
     place-items: center;
     margin: auto auto 25px;
@@ -336,7 +346,7 @@ main {
 .empty-state p {
     margin-top: 15px;
     font-family: "DM Mono", monospace;
-    color: #776e53;
+    color: #858c5a;
     font-size: 11px;
     line-height: 1.8;
 }
@@ -344,7 +354,7 @@ main {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(10, 9, 6, 0.85);
+    background: rgba(5, 8, 4, 0.88);
     backdrop-filter: blur(7px);
     display: flex;
     align-items: center;
@@ -363,11 +373,11 @@ main {
 .modal {
     width: min(500px, 90%);
     background: var(--dark);
-    border: 1px solid var(--orange);
+    border: 1px solid var(--green);
     padding: 35px;
     transform: translateY(30px) scale(0.97);
     transition: 0.3s;
-    box-shadow: 10px 10px 0 var(--orange-dark);
+    box-shadow: 10px 10px 0 var(--green-dark);
 }
 
 .modal-overlay.active .modal {
@@ -381,7 +391,7 @@ main {
 }
 
 .modal-header span {
-    color: var(--orange);
+    color: var(--green);
     font-family: "DM Mono", monospace;
     font-size: 10px;
 }
@@ -405,7 +415,7 @@ main {
 .input-group label {
     display: block;
     font-family: "DM Mono", monospace;
-    color: var(--orange);
+    color: var(--green);
     font-size: 10px;
     letter-spacing: 2px;
     margin-bottom: 10px;
@@ -422,13 +432,13 @@ main {
 }
 
 .input-group input:focus {
-    border-color: var(--orange);
+    border-color: var(--green);
 }
 
 .save-btn {
     width: 100%;
     border: none;
-    background: var(--orange);
+    background: var(--green);
     color: var(--black);
     padding: 16px;
     display: flex;
@@ -577,4 +587,4 @@ main {
         bottom: 20px;
         text-align: center;
     }
-  }
+}
