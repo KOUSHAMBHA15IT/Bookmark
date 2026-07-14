@@ -1,0 +1,580 @@
+:root {
+    --black: #171611;
+    --dark: #211f18;
+    --orange: #d85b26;
+    --orange-dark: #a83f17;
+    --yellow: #f3e3a3;
+    --cream: #fff4ca;
+    --border: #4a4432;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black);
+    color: var(--yellow);
+    font-family: "Space Grotesk", sans-serif;
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+.header {
+    height: 90px;
+    border-bottom: 1px solid var(--border);
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-box {
+    width: 45px;
+    height: 45px;
+    background: var(--orange);
+    color: var(--black);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    box-shadow: 5px 5px 0 var(--yellow);
+}
+
+.logo h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.logo h1 span {
+    color: var(--orange);
+}
+
+.logo p {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    margin-top: 3px;
+    opacity: 0.5;
+    letter-spacing: 2px;
+}
+
+.add-btn {
+    border: 1px solid var(--orange);
+    background: var(--orange);
+    color: var(--black);
+    padding: 13px 20px;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.add-btn:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 0 var(--orange-dark);
+}
+
+main {
+    width: min(1300px, 88%);
+    margin: auto;
+}
+
+.hero {
+    padding: 80px 0 65px;
+    animation: fadeUp 0.7s ease;
+}
+
+.hero-label {
+    color: var(--orange);
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.hero h2 {
+    font-size: clamp(42px, 7vw, 90px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+}
+
+.hero h2 span {
+    color: var(--orange);
+}
+
+.hero-description {
+    margin-top: 25px;
+    color: var(--yellow);
+    opacity: 0.55;
+    font-family: "DM Mono", monospace;
+    font-size: 13px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    width: 420px;
+    padding: 0 15px;
+}
+
+.search-box span {
+    color: var(--orange);
+    font-size: 25px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--yellow);
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+}
+
+.search-box input::placeholder {
+    color: #706952;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+}
+
+.filter {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: #8c8264;
+    padding: 0 18px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    transition: 0.25s;
+}
+
+.filter:hover,
+.filter.active {
+    color: var(--black);
+    background: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.bookmark-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 45px 0 100px;
+}
+
+.card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    animation: cardIn 0.5s ease both;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--orange);
+    box-shadow: 8px 8px 0 rgba(216, 91, 38, 0.25);
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.75);
+    transition: 0.4s;
+}
+
+.card:hover .thumbnail {
+    filter: saturate(1);
+    transform: scale(1.02);
+}
+
+.web-placeholder {
+    aspect-ratio: 16 / 9;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(45deg, transparent 49%, #332f22 50%, transparent 51%),
+        linear-gradient(-45deg, transparent 49%, #332f22 50%, transparent 51%);
+    background-size: 30px 30px;
+}
+
+.web-placeholder span {
+    font-size: 55px;
+    color: var(--orange);
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-type {
+    font-family: "DM Mono", monospace;
+    color: var(--orange);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.card h3 {
+    margin: 10px 0 8px;
+    font-size: 21px;
+    color: var(--cream);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-url {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: #82785b;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.visit-btn {
+    flex: 1;
+    background: var(--orange);
+    color: var(--black);
+    border: none;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.visit-btn:hover {
+    background: var(--yellow);
+}
+
+.delete-btn {
+    width: 42px;
+    background: transparent;
+    color: var(--orange);
+    border: 1px solid var(--border);
+    transition: 0.25s;
+}
+
+.delete-btn:hover {
+    color: var(--black);
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.empty-icon {
+    width: 75px;
+    height: 75px;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    display: grid;
+    place-items: center;
+    margin: auto auto 25px;
+    font-size: 35px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.empty-state h3 {
+    font-size: 25px;
+}
+
+.empty-state p {
+    margin-top: 15px;
+    font-family: "DM Mono", monospace;
+    color: #776e53;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 9, 6, 0.85);
+    backdrop-filter: blur(7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: min(500px, 90%);
+    background: var(--dark);
+    border: 1px solid var(--orange);
+    padding: 35px;
+    transform: translateY(30px) scale(0.97);
+    transition: 0.3s;
+    box-shadow: 10px 10px 0 var(--orange-dark);
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.modal-header span {
+    color: var(--orange);
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+}
+
+.modal-header h2 {
+    margin-top: 5px;
+    font-size: 28px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--yellow);
+    font-size: 30px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-family: "DM Mono", monospace;
+    color: var(--orange);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--border);
+    padding: 16px;
+    color: var(--yellow);
+    outline: none;
+    font-family: "DM Mono", monospace;
+}
+
+.input-group input:focus {
+    border-color: var(--orange);
+}
+
+.save-btn {
+    width: 100%;
+    border: none;
+    background: var(--orange);
+    color: var(--black);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.save-btn:hover {
+    background: var(--yellow);
+}
+
+.toast {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 15px 25px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 2000;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 900px) {
+    .bookmark-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .filter {
+        padding: 12px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: 75px;
+        padding: 0 5%;
+    }
+
+    .logo-box {
+        width: 38px;
+        height: 38px;
+        box-shadow: 3px 3px 0 var(--yellow);
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+
+    .logo p {
+        display: none;
+    }
+
+    .add-btn {
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    .hero {
+        padding: 60px 0 45px;
+    }
+
+    .hero h2 {
+        letter-spacing: -3px;
+    }
+
+    .bookmark-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .filters {
+        width: 100%;
+    }
+
+    .filter {
+        flex: 1;
+        padding: 12px 5px;
+        font-size: 9px;
+    }
+
+    .modal {
+        padding: 25px;
+    }
+
+    .toast {
+        left: 5%;
+        right: 5%;
+        bottom: 20px;
+        text-align: center;
+    }
+  }
